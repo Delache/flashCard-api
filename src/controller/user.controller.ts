@@ -20,5 +20,16 @@ export const UserController = (app: Application) => {
         res.send(result);
     });
 
+    userRouter.get('/:id', async (req: Request, res: Response) => {
+        const id = parseInt(req.params.id, 10);
+
+        try {
+            const result = await userService.getById(id);
+            res.send(result);
+        } catch (error) {
+            res.status(404).send('L\'id n\'a pas été trouvé'+ id);
+        }
+    });
+
     app.use('/users', userRouter);
 };
