@@ -1,8 +1,8 @@
 /**
  * Cette classe est un modèle
- * Elle représente la forme de l'objet Evente (évenement)
+ * Elle représente la forme de l'objet Event (évenement)
  */
-export class Evente {
+export class Event {
 
     public id!: number;
     public createAt!: string;
@@ -15,7 +15,7 @@ export class Evente {
     public description!: string;
     public user_id!: number;
 
-    constructor(input: Evente) {
+    constructor(input: Event) {
         Object.assign(this, input);
     }
 }
