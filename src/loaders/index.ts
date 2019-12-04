@@ -6,4 +6,5 @@ export default async (app: Application ) => {
   console.log('Express Intialized');
 
   // Rajouter le loader MySQL
+
 };

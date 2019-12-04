@@ -6,27 +6,21 @@
  */
 export class SportRepository {
 
-    private static instance: SportRepository;
+    // private GET_ALL = 'SELECT * FROM SPORT;';
 
-    static getInstance() {
-        if (!this.instance) {
-            this.instance = new SportRepository();
-        }
-        return this.instance;
+    constructor() {
+
     }
 
-    private constructor() {
-    }
+    // findAll() {
+    //     //
+    // }
 
-    findAll() {
-        //
-    }
+    // findById(id: number) {
+    //     // votre code ici
+    // }
 
-    findById(id: number) {
-        // votre code ici
-    }
-
-    save(sport: any) {
-        // votre code ici
-    }
+    // save(sport: any) {
+    //     // votre code ici
+    // }
 }
