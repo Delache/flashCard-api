@@ -12,6 +12,7 @@ export class DbHandler {
         return this.instance;
     }
 
+    
     private constructor(connection: Connection) {
         this.connection = connection;
     }
