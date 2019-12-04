@@ -1,5 +1,6 @@
-import { User } from './../models/user';
 import { UserRepository } from '../repository/user.repository';
+import { User } from './../models/user';
+import { isNumber } from 'util';
 /**
  * Cette classe est un service
  * C'est ici que l'ensemble de la logique consernant les users doit apparaitre.
@@ -20,9 +21,15 @@ export class UserService {
         return all;
     }
 
-    // getById(id: number) {
-    //     // return this.repository.findById(id);
-    // }
+    async getById(id: number) {
+        // Vérification des données
+        if (!Number.isInteger(id)) {
+            throw new Error('erreor');
+        }
+
+        // Récupération du user
+        return await this.repository.findById(id);
+    }
 
     signUp(user: User) {
         return this.repository.save(user);
