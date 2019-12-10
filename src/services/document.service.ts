@@ -1,4 +1,5 @@
 import { DocumentRepository } from '../repository/document.repository';
+import { Document } from 'src/models/document';
 /**
  * Cette classe est un service
  * C'est ici que l'ensemble de la logique consernant les documents doit apparaitre.
@@ -28,14 +29,19 @@ export class DocumentService {
         // Récupération du document
         return await this.repository.findById(id);
     }
+
     // upload du document
-    upload(document: any) {
+    async upload(document: Document) {
         return this.repository.save(document);
     }
-    modifyDoc(document: any, id: number) {
+
+    // modification du document
+    async modifyDoc(document: Document, id: number) {
         return this.repository.modify(document, id);
     }
-    deleteDoc(id: number) {
+
+    // suppression du document
+    async deleteDoc(id: number) {
         return this.repository.delete(id);
     }
 

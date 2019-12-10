@@ -4,10 +4,10 @@ import { DbHandler } from './db.handler';
 export class DocumentRepository {
 
     private GET_ALL = 'SELECT * FROM document;';
-    private GET_BY_ID = 'SELECT * FROM document where id =';
+    private GET_BY_ID = 'SELECT * FROM document where id = ?';
     private POST_BY_ID = 'INSERT INTO document SET ?';
     private PUT_BY_ID = 'UPDATE document SET ? WHERE id = ?';
-    private DEL_BY_ID = 'DELETE document SET ? WHERE id = ?';
+    private DEL_BY_ID = 'DELETE FROM document WHERE id = ?';
 
     private db: DbHandler;
 
@@ -27,7 +27,7 @@ export class DocumentRepository {
     }
 
     async findById(id: number) {
-        const document = await this.db.query(this.GET_BY_ID + id);
+        const document = await this.db.query(this.GET_BY_ID , id);
         return document;
     }
 
@@ -36,12 +36,14 @@ export class DocumentRepository {
         const postDoc = await this.db.query(this.POST_BY_ID, document);
         return postDoc;
     }
+
     async modify(document: Document, id: number) {
         const modifyDoc = await this.db.query(this.PUT_BY_ID, [document, id]);
         return modifyDoc;
     }
+
     async delete(id: number) {
-        const deleteDoc = await this.db.query(this.DEL_BY_ID + id);
+        const deleteDoc = await this.db.query(this.DEL_BY_ID , id);
         return deleteDoc;
     }
 }
