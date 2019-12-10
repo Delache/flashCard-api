@@ -9,6 +9,7 @@ export class Document {
     public updateAt!: string;
     public deleteAt!: string;
     public type!: string;
+    public title!: string;
     public description!: string;
     public link!: string;
     public user_id!: number;

@@ -32,5 +32,11 @@ export class DocumentService {
     upload(document: any) {
         return this.repository.save(document);
     }
+    modifyDoc(document: any, id: number) {
+        return this.repository.modify(document, id);
+    }
+    deleteDoc(id: number) {
+        return this.repository.delete(id);
+    }
 
 }
