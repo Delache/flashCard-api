@@ -56,6 +56,7 @@ CREATE TABLE `document` (
   `updateAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleteAt` timestamp NULL DEFAULT NULL,
   `type` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `title` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
   `description` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `link` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `user_id` int(11) DEFAULT NULL,
