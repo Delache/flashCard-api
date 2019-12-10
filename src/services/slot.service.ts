@@ -1,5 +1,5 @@
 import { SlotRepository } from 'src/repository/slot.repository';
-import { isNumber } from 'util';
+import { Slot } from 'src/models/slot';
 /**
  * Cette classe est un service
  * C'est ici que l'ensemble de la logique consernant les homes doit apparaitre.
@@ -28,6 +28,10 @@ export class SlotService {
 
         // Récupération du créneau de rdv
         return await this.repository.findById(id);
+    }
+
+    signUp(slot: Slot) {
+        return this.repository.save(slot);
     }
 
 }

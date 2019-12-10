@@ -1,4 +1,5 @@
 import { DbHandler } from './db.handler';
+import { Slot } from './../models/slot';
 
 export class SlotRepository {
 

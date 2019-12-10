@@ -11,8 +11,10 @@ export const UserController = (app: Application) => {
     const userRouter: Router = express.Router();
     const userService = new UserService();
 
-    userRouter.post('/signup', (req: Request, res: Response) => {
-        //
+    userRouter.post('/', (req: Request, res: Response) => {
+        const user = req.body;
+        userService.signUp(user);
+        res.send(user);
     });
 
     userRouter.get('/', async (req: Request, res: Response) => {
@@ -27,7 +29,7 @@ export const UserController = (app: Application) => {
             const result = await userService.getById(id);
             res.send(result);
         } catch (error) {
-            res.status(404).send('L\'id n\'a pas été trouvé'+ id);
+            res.status(404).send('L\'id n\'a pas été trouvé' + id);
         }
     });
 

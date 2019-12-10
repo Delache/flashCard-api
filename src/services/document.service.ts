@@ -1,5 +1,4 @@
 import { DocumentRepository } from '../repository/document.repository';
-import { isNumber } from 'util';
 /**
  * Cette classe est un service
  * C'est ici que l'ensemble de la logique consernant les documents doit apparaitre.
@@ -28,6 +27,10 @@ export class DocumentService {
 
         // Récupération du document
         return await this.repository.findById(id);
+    }
+    // upload du document
+    upload(document: any) {
+        return this.repository.save(document);
     }
 
 }
