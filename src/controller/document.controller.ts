@@ -16,6 +16,18 @@ export const DocumentController = (app: Application) => {
         documentService.upload(document);
         res.send(document);
     });
+    documentRouter.put('/:id', (req: Request, res: Response) => {
+        const id = parseInt(req.params.id, 10);
+        const document = req.body;
+        documentService.modifyDoc(document, id);
+        res.send(document);
+    });
+    documentRouter.delete('/:id', (req: Request, res: Response) => {
+        const id = parseInt(req.params.id, 10);
+        const document = req.body;
+        documentService.deleteDoc(id);
+        res.send(document);
+    });
 
     documentRouter.get('/', async (req: Request, res: Response) => {
         const result = await documentService.getAll();
