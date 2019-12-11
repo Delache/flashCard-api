@@ -25,4 +25,3 @@ export default async () => {
 
   return connexion;
 };
-// ne fonctionne pas
