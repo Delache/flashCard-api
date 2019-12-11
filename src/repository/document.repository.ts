@@ -1,5 +1,5 @@
-import { Document } from './../models/document';
 import { DbHandler } from './db.handler';
+import { Document } from './../models/document';
 
 export class DocumentRepository {
 

@@ -1,5 +1,5 @@
-import { DocumentService } from '../services/document.service';
 import express, { Router, Request, Response, Application } from 'express';
+import { DocumentService } from '../services/document.service';
 
 /**
  * Le controller vous servira à réceptionner les requêtes associées aux utilisateurs

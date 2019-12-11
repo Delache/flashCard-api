@@ -30,17 +30,17 @@ export class DocumentService {
         return await this.repository.findById(id);
     }
 
-    // upload du document
+    // Upload du document
     async upload(document: Document) {
         return this.repository.save(document);
     }
 
-    // modification du document
+    // Modification du document
     async modifyDoc(document: Document, id: number) {
         return this.repository.modify(document, id);
     }
 
-    // suppression du document
+    // Suppression du document
     async deleteDoc(id: number) {
         return this.repository.delete(id);
     }

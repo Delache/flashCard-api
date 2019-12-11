@@ -4,6 +4,7 @@ import express from 'express';
 
 import loaders from './loaders';
 import { UserController } from './controller/user.controller';
+import { HomeController } from './controller/home.controller';
 
 async function startServer() {
     // Récupération de l'application initiale
@@ -14,6 +15,7 @@ async function startServer() {
 
     // Ajout des différentes route de votre application
     DocumentController(app);
+    HomeController(app);
     SportController(app);
     UserController(app);
 
