@@ -13,8 +13,8 @@ export class UserRepository {
     }
 
     async findAll() {
-        // this.db.query(this.GET_ALL).then((reust) => {
-        //     console.log(reust);
+        // this.db.query(this.GET_ALL).then((result) => {
+        //     console.log(result);
         // });
 
         // Ou alors on peut ecrire =>
@@ -30,5 +30,6 @@ export class UserRepository {
 
     save(user: any) {
         // votre code ici
+
     }
 }

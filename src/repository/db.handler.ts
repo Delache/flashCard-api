@@ -1,3 +1,4 @@
+// import { Connection } from 'mysql';
 import { Connection } from 'mysql';
 
 export class DbHandler {

@@ -8,5 +8,6 @@ export default async (app: Application ) => {
 
   // Rajouter le loader MySQL
   await mysqlLoader();
+  console.log('MySQL Intialized');
 
 };
