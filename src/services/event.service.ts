@@ -1,8 +1,9 @@
-import { EventRepository } from 'src/repository/event.repository';
-import { isNumber } from 'util';
+import { Event } from './../models/event';
+import { EventRepository } from '../repository/event.repository';
+
 /**
  * Cette classe est un service
- * C'est ici que l'ensemble de la logique consernant les homes doit apparaitre.
+ * C'est ici que l'ensemble de la logique consernant les Events doit apparaitre.
  * Attention ! Mettez le moins possible d'elements dans le controlleur
  */
 export class EventService {
@@ -26,8 +27,23 @@ export class EventService {
             throw new Error('error');
         }
 
-        // Récupération du event
+        // Récupération du Event
         return await this.repository.findById(id);
+    }
+
+    // upload du Event
+    async upload(event: Event) {
+        return this.repository.save(event);
+    }
+
+    // modification du Event
+    async modifyEvent(event: Event, id: number) {
+        return this.repository.modifyEvent(event, id);
+    }
+
+    // suppression du Event
+    async deleteEvent(id: number) {
+        return this.repository.deleteEvent(id);
     }
 
 }
