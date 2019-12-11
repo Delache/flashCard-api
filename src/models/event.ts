@@ -8,8 +8,6 @@ export class Event {
     public createAt!: string;
     public updateAt!: string;
     public deleteAt!: string;
-    public quantity!: string;
-    public type!: string;
     public author!: string;
     public date!: string;
     public description!: string;
