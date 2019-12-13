@@ -1,6 +1,6 @@
 
 import express, { Router, Request, Response, Application } from 'express';
-import { DrainingService } from 'src/services/draining.service';
+import { DrainingService } from '../services/draining.service';
 
 /**
  * Le controller vous servira à réceptionner les requêtes associées aux utilisateurs
@@ -14,7 +14,7 @@ export const DrainingController = (app: Application) => {
 
     drainingRouter.post('/', (req: Request, res: Response) => {
         const user = req.body;
-        drainingService.signUp(user);
+        drainingService.createDraining(user);
         res.send(user);
     });
 

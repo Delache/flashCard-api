@@ -21,10 +21,6 @@ export class UserService {
         return await this.repository.findById(id);
     }
 
-    signUp(user: User) {
-        return this.repository.save(user);
-    }
-
     async upload(user: User) {
         return this.repository.save(user);
     }
