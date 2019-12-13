@@ -1,5 +1,5 @@
 import { DocumentRepository } from '../repository/document.repository';
-import { Document } from 'src/models/document';
+import { Document } from '../models/document';
 /**
  * Cette classe est un service
  * C'est ici que l'ensemble de la logique consernant les documents doit apparaitre.

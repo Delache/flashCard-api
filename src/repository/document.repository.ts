@@ -32,7 +32,6 @@ export class DocumentRepository {
     }
 
     async save(document: Document) {
-        // votre code ici
         const postDoc = await this.db.query(this.POST_BY_ID, document);
         return postDoc;
     }

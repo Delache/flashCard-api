@@ -151,13 +151,13 @@ LOCK TABLES `draining_request` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `evente`
+-- Table structure for table `event`
 --
 
-DROP TABLE IF EXISTS `evente`;
+DROP TABLE IF EXISTS `event`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `evente` (
+CREATE TABLE `event` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `createAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updateAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -168,17 +168,17 @@ CREATE TABLE `evente` (
   `user_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
-  CONSTRAINT `evente_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+  CONSTRAINT `event_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `evente`
+-- Dumping data for table `event`
 --
 
-LOCK TABLES `evente` WRITE;
-/*!40000 ALTER TABLE `evente` DISABLE KEYS */;
-/*!40000 ALTER TABLE `evente` ENABLE KEYS */;
+LOCK TABLES `event` WRITE;
+/*!40000 ALTER TABLE `event` DISABLE KEYS */;
+/*!40000 ALTER TABLE `event` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -338,13 +338,13 @@ LOCK TABLES `user` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `witnesse`
+-- Table structure for table `witness`
 --
 
-DROP TABLE IF EXISTS `witnesse`;
+DROP TABLE IF EXISTS `witness`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `witnesse` (
+CREATE TABLE `witness` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `createAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updateAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -355,18 +355,46 @@ CREATE TABLE `witnesse` (
   `user_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
-  CONSTRAINT `witnesse_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+  CONSTRAINT `witness_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `witnesse`
+-- Dumping data for table `witness`
 --
 
-LOCK TABLES `witnesse` WRITE;
-/*!40000 ALTER TABLE `witnesse` DISABLE KEYS */;
-/*!40000 ALTER TABLE `witnesse` ENABLE KEYS */;
+LOCK TABLES `witness` WRITE;
+/*!40000 ALTER TABLE `witness` DISABLE KEYS */;
+/*!40000 ALTER TABLE `witness` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `document`
+--
+
+DROP TABLE IF EXISTS `news`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `news` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `createAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updateAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `deleteAt` timestamp NULL DEFAULT NULL,
+  `type` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `title` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `link` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `news_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `news`
+--
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

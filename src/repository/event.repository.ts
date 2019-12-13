@@ -3,11 +3,13 @@ import { DbHandler } from './db.handler';
 
 export class EventRepository {
 
+
     private GET_ALL = 'SELECT * FROM event JOIN user ON user.id= user_id;';
     private GET_BY_ID = 'SELECT * FROM event JOIN user ON user.id= user_id where id = ?';
     private POST_BY_ID = 'INSERT INTO event JOIN user ON user.id= user_id SET ?';
     private PUT_BY_ID = 'UPDATE event JOIN user ON user.id= user_id SET ? WHERE id = ?';
     private DEL_BY_ID = 'DELETE FROM event JOIN user ON user.id= user_id WHERE id = ?';
+
 
     private db: DbHandler;
 
@@ -17,11 +19,7 @@ export class EventRepository {
     }
 
     async findAll() {
-        // this.db.query(this.GET_ALL).then((result) => {
-        // console.log(result);
-        // });
 
-        // Ou alors on peut ecrire =>
         const result = await this.db.query(this.GET_ALL);
         return result;
     }

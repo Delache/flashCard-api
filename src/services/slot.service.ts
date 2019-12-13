@@ -1,19 +1,12 @@
-import { SlotRepository } from 'src/repository/slot.repository';
-import { Slot } from 'src/models/slot';
-/**
- * Cette classe est un service
- * C'est ici que l'ensemble de la logique consernant les homes doit apparaitre.
- * Attention ! Mettez le moins possible d'elements dans le controlleur
- */
+import { SlotRepository } from '../repository/slot.repository';
+import { Slot } from '../models/slot';
+
 export class SlotService {
 
-    // Un singeleton est une class ayant une instance unique a travers toute l'app
     private repository: SlotRepository;
     constructor() {
         this.repository = new SlotRepository();
     }
-
-    // Business logic
 
     async getAll() {
         const all = await this.repository.findAll();
@@ -21,12 +14,10 @@ export class SlotService {
     }
 
     async getById(id: number) {
-        // Vérification des données
         if (!Number.isInteger(id)) {
             throw new Error('error');
         }
 
-        // Récupération du créneau de rdv
         return await this.repository.findById(id);
     }
 
