@@ -45,6 +45,12 @@ export const DocumentController = (app: Application) => {
             res.status(404).send('L\'id n\'a pas été trouvé' + id);
         }
     });
+// Recherche de documents avec barre de recherche
+    documentRouter.get('/recherche/:recherche', async (req: Request, res: Response) => {
+        const word = req.params.recherche;
+        const result = await documentService.getBySearch(word);
+        res.send(result);
+    });
 
     app.use('/documents', documentRouter);
 };
