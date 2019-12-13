@@ -13,7 +13,7 @@ export const UserController = (app: Application) => {
 
     userRouter.post('/', (req: Request, res: Response) => {
         const user = req.body;
-        userService.signUp(user);
+        userService.upload(user);
         res.send(user);
     });
 
