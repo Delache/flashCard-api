@@ -5,6 +5,7 @@ export class DocumentRepository {
 
     private GET_ALL = 'SELECT * FROM document;';
     private GET_BY_ID = 'SELECT * FROM document where id = ?';
+    private GET_DOC_BY_SEARCH = 'SELECT * FROM document WHERE title LIKE ? OR description LIKE ? ' ;
     private POST_BY_ID = 'INSERT INTO document SET ?';
     private PUT_BY_ID = 'UPDATE document SET ? WHERE id = ?';
     private DEL_BY_ID = 'DELETE FROM document WHERE id = ?';
@@ -23,6 +24,12 @@ export class DocumentRepository {
 
         // Ou alors on peut ecrire =>
         const result = await this.db.query(this.GET_ALL);
+        return result;
+    }
+    // Recherche des documents avec barre de recherche
+    async searchDocument(word: string) {
+        const searchWord = '%' + word + '%';
+        const result = await this.db.query(this.GET_DOC_BY_SEARCH, [searchWord, searchWord]);
         return result;
     }
 
