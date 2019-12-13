@@ -2,8 +2,8 @@ import { DbHandler } from './db.handler';
 
 export class EventRepository {
 
-    private GET_ALL = 'SELECT * FROM evente;';
-    private GET_BY_ID = 'SELECT * FROM evente where id =';
+    private GET_ALL = 'SELECT * FROM event;';
+    private GET_BY_ID = 'SELECT * FROM event where id =';
 
     private db: DbHandler;
 
@@ -13,12 +13,6 @@ export class EventRepository {
     }
 
     async findAll() {
-        // this.db.query(this.GET_ALL).then((reust) => {
-        //     console.log(reust);
-        // });
-
-        // Ou alors on peut ecrire =>
-
         const result = await this.db.query(this.GET_ALL);
         return result;
     }

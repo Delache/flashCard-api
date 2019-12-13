@@ -13,12 +13,6 @@ export class DrainingRepository {
     }
 
     async findAll() {
-        // this.db.query(this.GET_ALL).then((reust) => {
-        //     console.log(reust);
-        // });
-
-        // Ou alors on peut ecrire =>
-
         const result = await this.db.query(this.GET_ALL);
         return result;
     }

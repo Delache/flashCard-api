@@ -1,5 +1,5 @@
 import { DbHandler } from './db.handler';
-import { User } from 'src/models/user';
+import { User } from '../models/user';
 
 export class UserRepository {
 
@@ -17,11 +17,6 @@ export class UserRepository {
     }
 
     async findAll() {
-        // this.db.query(this.GET_ALL).then((reust) => {
-        //     console.log(reust);
-        // });
-
-        // Ou alors on peut ecrire =>
         const result = await this.db.query(this.GET_ALL);
         return result;
     }

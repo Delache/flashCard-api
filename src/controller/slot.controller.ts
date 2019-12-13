@@ -1,5 +1,5 @@
 import express, { Router, Request, Response, Application } from 'express';
-import { SlotService } from 'src/services/slot.service';
+import { SlotService } from '../services/slot.service';
 
 /**
  * Le controller vous servira à réceptionner les requêtes associées aux utilisateurs

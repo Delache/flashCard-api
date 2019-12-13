@@ -49,4 +49,3 @@ export const DocumentController = (app: Application) => {
     app.use('/documents', documentRouter);
 };
 
-// get all et get par id fonctionnent

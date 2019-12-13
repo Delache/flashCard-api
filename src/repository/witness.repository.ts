@@ -2,8 +2,8 @@ import { DbHandler } from './db.handler';
 
 export class WitnessRepository {
 
-    private GET_ALL = 'SELECT * FROM witnesse;';
-    private GET_BY_ID = 'SELECT * FROM witnesse where id =';
+    private GET_ALL = 'SELECT * FROM witness;';
+    private GET_BY_ID = 'SELECT * FROM witness where id =';
 
     private db: DbHandler;
 
@@ -13,12 +13,6 @@ export class WitnessRepository {
     }
 
     async findAll() {
-        // this.db.query(this.GET_ALL).then((result) => {
-        //     console.log(result);
-        // });
-
-        // Ou alors on peut ecrire =>
-
         const result = await this.db.query(this.GET_ALL);
         return result;
     }
