@@ -19,6 +19,11 @@ export class DocumentService {
         const all = await this.repository.findAll();
         return all;
     }
+    // Recherche des documents par mots dans site vitrine
+    async getBySearch(word: string) {
+        const search = await this.repository.searchDocument(word);
+        return search;
+    }
 
     async getById(id: number) {
         // Vérification des données
