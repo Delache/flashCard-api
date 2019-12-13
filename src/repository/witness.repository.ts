@@ -1,34 +1,47 @@
+import { Witness } from './../models/witness';
 import { DbHandler } from './db.handler';
 
 export class WitnessRepository {
 
-    private GET_ALL = 'SELECT * FROM witnesse;';
-    private GET_BY_ID = 'SELECT * FROM witnesse where id =';
+    private GET_ALL = 'SELECT * FROM witness JOIN user ON user.id= user_id;';
+    private GET_BY_ID = 'SELECT * FROM witness JOIN user ON user.id= user_id WHERE id = ?';
+    private POST_BY_ID = 'INSERT INTO witness JOIN user ON user.id= user_id SET ?';
+    private PUT_BY_ID = 'UPDATE witness JOIN user ON user.id= user_id SET ? WHERE id = ?';
+    private DEL_BY_ID = 'DELETE FROM witness JOIN user ON user.id= user_id WHERE id = ?';
 
     private db: DbHandler;
 
     constructor() {
         this.db =  DbHandler.getInstance();
-
     }
 
     async findAll() {
         // this.db.query(this.GET_ALL).then((result) => {
-        //     console.log(result);
+        // console.log(result);
         // });
 
         // Ou alors on peut ecrire =>
-
         const result = await this.db.query(this.GET_ALL);
         return result;
     }
 
     async findById(id: number) {
-        const witness = await this.db.query(this.GET_BY_ID + id);
+        const witness = await this.db.query(this.GET_BY_ID , id);
         return witness;
     }
 
-    save(witness: any) {
-        // votre code ici
+    async save(witness: Witness) {
+        const postWitness = await this.db.query(this.POST_BY_ID, witness);
+        return postWitness;
+    }
+
+    async modifyWitness(witness: Witness, id: number) {
+        const modifyWitness = await this.db.query(this.PUT_BY_ID, [witness, id]);
+        return modifyWitness;
+    }
+
+    async deleteWitness(id: number) {
+        const deleteWitness = await this.db.query(this.DEL_BY_ID , id);
+        return deleteWitness;
     }
 }
