@@ -13,8 +13,21 @@ export const UserController = (app: Application) => {
 
     userRouter.post('/', (req: Request, res: Response) => {
         const user = req.body;
-        userService.signUp(user);
+        userService.upload(user);
         res.send(user);
+    });
+
+    userRouter.put('/:id', (req: Request, res: Response) => {
+        const id = parseInt(req.params.id, 10);
+        const user = req.body;
+        userService.modifyUser(user, id);
+        res.send(user);
+    });
+
+    userRouter.delete('/:id', (req: Request, res: Response) => {
+        const id = parseInt(req.params.id, 10);
+        userService.deleteUser(id);
+        res.send();
     });
 
     userRouter.get('/', async (req: Request, res: Response) => {

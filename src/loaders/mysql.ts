@@ -3,10 +3,6 @@ import { DbHandler } from '../repository/db.handler';
 
 export default async () => {
 
-  console.log(process.env.WILD_API_DB_PORT);
-  console.log(process.env.WILD_API_DB_HOST);
-  console.log(process.env.WILD_API_DB_USER);
-  console.log(process.env.WILD_API_FUMAINERIE_DB_PASSWORD);
 
   const connexion = mysql.createConnection({
     host: process.env.WILD_API_DB_HOST,
@@ -25,4 +21,3 @@ export default async () => {
 
   return connexion;
 };
-// ne fonctionne pas
