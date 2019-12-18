@@ -10,15 +10,10 @@ export class User {
     public deleteAt!: string;
     public firstname!: string;
     public lastname!: string;
-    public birth_date!: string;
-    public phone!: string;
-    public email!: string;
     public username!: string;
     public password!: string;
     public avatar!: string;
-    public status!: string;
-    public account_status!: string;
-    public function!: string;
+    public class!: string;
 
     constructor(input: User) {
         Object.assign(this, input);
